@@ -18,7 +18,7 @@ def alerts():
     return "OK", 200
 
 def create_service_now_incident(alert):
-    servicenow_url = "https://"+{SERVICENOW_INSTANCE_URL}+"/api/now/table/incident"
+    servicenow_url = "https://"+str(SERVICENOW_INSTANCE_URL)+"/api/now/table/incident"
     headers = {
         "Content-Type": "application/json",
     }
