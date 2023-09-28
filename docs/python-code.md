@@ -1,6 +1,4 @@
-Here is some documentation for the Python flask application code:
-
-# Overview
+# Python Code Documentation
 
 This implements a simple Flask application that receives alerts from an alert manager, and creates corresponding incidents in ServiceNow. 
 
