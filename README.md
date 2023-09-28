@@ -81,7 +81,7 @@ route:
 ```
 
 ## Documentation
-See the documentation in the repo for more details on the YAML configs, API specs, and deployment instructions
+See the documentation in the repo for more details on the YAML configs and deployment instructions
 * [Python Code](docs/python-code.md)
 * [Deployment Notes](docs/deployment.md)
 * [Custom Alert Rules ConfigMap](docs/custom-alert-rules-configmap.md)
