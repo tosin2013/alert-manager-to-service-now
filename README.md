@@ -3,9 +3,8 @@
 ## Requirements
 * OpenShift 4.12+
 * kustomize or oc 
-* ServiceNow instance
+* [ServiceNow](https://developer.servicenow.com/dev.do) instance
   
-
 ## Overview
 This is a simple Flask application that receives alerts from an alert manager, and creates corresponding incidents in ServiceNow.
 
