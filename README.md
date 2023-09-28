@@ -6,20 +6,18 @@
   
 
 ## Overview
-AlertManager configuration to send alerts to a webhook endpoint
-Flask application that receives alerts and creates ServiceNow incidents
-Kubernetes manifests to deploy the application on OpenShift
-Custom Prometheus alert rules definitions
+This is a simple Flask application that receives alerts from an alert manager, and creates corresponding incidents in ServiceNow.
+
 
 ![20230927100134](https://i.imgur.com/N3F58Tb.png)
 
 ![20230927145958](https://i.imgur.com/hgHhTx5.png)
 
 ## Workflow
-Prometheus evaluates custom alert rules and sends firing alerts to AlertManager
-AlertManager routes the alerts to the webhook endpoint exposed by the Flask app
-The Flask app parses the alert data and calls the ServiceNow API to create an incident
-New incidents are created in ServiceNow for each alert
+* Prometheus evaluates alert rules and sends firing alerts to AlertManager
+* AlertManager routes the alerts to the webhook endpoint exposed by the Flask app
+* The Flask app parses the alert data and calls the ServiceNow API to create an incident
+* New incidents are created in ServiceNow for each alert
 
 ## Deployment
 ```
@@ -27,7 +25,7 @@ oc apply -k ./app
 ```
 **Quick deployment**
 ```
-oc apply -k
+oc apply -k https://github.com/tosin2013/alert-manager-to-service-now/app --dry-run=client -o yaml 
 ```
 
 **Example Custom Alert** 
