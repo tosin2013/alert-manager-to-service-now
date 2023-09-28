@@ -1,0 +1,15 @@
+kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: alert-manager-to-service-now
+  namespace: alert-manager-to-service-now
+  labels:
+    app: alert-manager-to-service-now
+    app.kubernetes.io/component: alert-manager-to-service-now
+    app.kubernetes.io/instance: alert-manager-to-service-now
+    app.kubernetes.io/name: alert-manager-to-service-now
+    app.kubernetes.io/part-of: alert-manager-to-service-now
+spec:
+  lookupPolicy:
+    local: false
+

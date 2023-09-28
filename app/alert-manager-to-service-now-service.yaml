@@ -1,0 +1,26 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: alert-manager-to-service-now
+  namespace: alert-manager-to-service-now
+  labels:
+    app: alert-manager-to-service-now
+    app.kubernetes.io/component: alert-manager-to-service-now
+    app.kubernetes.io/instance: alert-manager-to-service-now
+    app.kubernetes.io/name: alert-manager-to-service-now
+    app.kubernetes.io/part-of: alert-manager-to-service-now
+spec:
+  ipFamilies:
+    - IPv4
+  ports:
+    - name: 5000-tcp
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+  internalTrafficPolicy: Cluster
+  type: ClusterIP
+  ipFamilyPolicy: SingleStack
+  sessionAffinity: None
+  selector:
+    app: alert-manager-to-service-now
+    deployment: alert-manager-to-service-now

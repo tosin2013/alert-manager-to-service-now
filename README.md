@@ -1,8 +1,36 @@
+# Sendinfg Alert Manager alerts to ServiceNow on OpenShift 
+
+## Requirements
+* OpenShift 4.12+
+* kustomize or oc 
+  
+
+## Overview
+AlertManager configuration to send alerts to a webhook endpoint
+Flask application that receives alerts and creates ServiceNow incidents
+Kubernetes manifests to deploy the application on OpenShift
+Custom Prometheus alert rules definitions
+
 ![20230927100134](https://i.imgur.com/N3F58Tb.png)
 
 ![20230927145958](https://i.imgur.com/hgHhTx5.png)
-Example Custom Alert 
 
+## Workflow
+Prometheus evaluates custom alert rules and sends firing alerts to AlertManager
+AlertManager routes the alerts to the webhook endpoint exposed by the Flask app
+The Flask app parses the alert data and calls the ServiceNow API to create an incident
+New incidents are created in ServiceNow for each alert
+
+## Deployment
+```
+oc apply -k ./app
+```
+**Quick deployment**
+```
+oc apply -k
+```
+
+**Example Custom Alert** 
 ```
 apiVersion: v1
 data:
@@ -28,8 +56,7 @@ metadata:
   namespace: open-cluster-management-observability
 ```
 
-Example service-now webhook
-
+**Example service-now webhook**
 ```
 global:
   resolve_timeout: "5m"
@@ -38,7 +65,7 @@ receivers:
 - name: "null"
 - name: "service-now"
   webhook_configs:
-    - url: "https://alert-manager-to-service-now-alert-manager-to-service-now.apps.cluster-nvpdr.nvpdr.sandbox2232.opentlc.com/alerts"
+    - url: "https://alert-manager-to-service-now-alert-manager-to-service-now.apps.ocp4.example.com/alerts"
 
 route:
   group_by:
@@ -55,6 +82,11 @@ route:
     receiver: "service-now"
 ```
 
+## Documentation
+See the documentation in the repo for more details on the YAML configs, API specs, and deployment instructions
+* [Python Code](docs/python-code.md)
+* [Deployment Notes](docs/deployment.md)
+* [Custom Alert Rules ConfigMap](docs/custom-alert-rules-configmap.md)
 
-Links: 
+## Links: 
 * https://shanna-chan.blog/2023/05/01/way-too-many-alerts-which-alerts-are-important/
