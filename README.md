@@ -3,6 +3,7 @@
 ## Requirements
 * OpenShift 4.12+
 * kustomize or oc 
+* ServiceNow instance
   
 
 ## Overview
