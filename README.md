@@ -1,4 +1,4 @@
-# Sendinfg Alert Manager alerts to ServiceNow on OpenShift 
+# Sending Alert Manager alerts to ServiceNow on OpenShift 
 
 ## Requirements
 * OpenShift 4.12+
